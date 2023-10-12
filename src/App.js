@@ -1,25 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import Display from "./KOn.js";
+import Navbar from "./Navbar.js";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App" class="pb-8">
+      <Navbar />
+      <h1 class="p-6 pr-6 text-center text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-l from-blue-500 via-yellow-200 to-fuchsia-300">
+        Band Members from K-On
+      </h1>
+      <Display />
     </div>
   );
 }
+
 
 export default App;
