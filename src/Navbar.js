@@ -1,5 +1,24 @@
+import KOnDisplay from "./KOn.js";
+import SGDisplay from "./Steinsgate.js";
+import React, { useState } from 'react';
+
 function Navbar(){
+    let content;
+    const [pages, setpage] = useState(false);
+    function Change() {
+        if(!pages) {
+            setpage(true);
+        }else{
+            setpage(false);
+        }
+    };
+    if(!pages){
+        content = <KOnDisplay />
+    } else {
+        content = <SGDisplay />
+    }
     return(
+        <>
         <div class="flex flex-row flex-nowrap bg-black text-white justify-between h-12 text-xl rounded-b-lg">
             <div class="flex-none">
             <img
@@ -9,22 +28,29 @@ function Navbar(){
             </img>
             </div>
             <div class="flex-none">
-                <div class="flex flex-row justify-center align-middle m-auto h-12 bg-clip-text text-transparent bg-gradient-to-r from-yellow-300 to-orange-600">
-                    <div class="flex-none font-bold justify-center align-middle p-4 pt-3 hover:bg-slate-700 rounded-xl">
-                        Meow
-                    </div>                    
-                    <div class="flex-none font-bold justify-center align-middle p-4 pt-3 hover:bg-slate-700 rounded-xl">
-                        Woof
-                    </div>                    
-                    <div class="flex-none font-bold justify-center align-middle p-4 pt-3 hover:bg-slate-700 rounded-xl">
-                        Croak
-                    </div>
-                </div>
+                <NavBarContent Page={Change}/>
             </div>
             <div class="flex-none text-3xl font-extrabold pr-6 pt-1">
                 HTT
             </div>
         </div>
+        {content}
+        </>
+    );
+}
+
+function NavBarContent({Page}){
+
+
+    return(
+    <div class="flex flex-row justify-center align-middle m-auto h-12">
+        <div class="flex-none font-bold justify-center align-middle p-4 pt-3 hover:bg-slate-700 text-orange-300 rounded-xl">
+            <button onclick={Page}>K-On</button>
+        </div>
+        <div class="flex-none font-bold justify-center align-middle p-4 pt-3 hover:bg-slate-700 text-blue-300 rounded-xl">
+            <button onclick={Page}>Steins Gate</button>
+        </div>
+    </div>
     );
 }
 
