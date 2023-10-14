@@ -4,17 +4,23 @@ import React, { useState } from 'react';
 
 function Navbar(){
     let content;
-    const [pages, setpage] = useState(false);
-    function Change() {
-        if(!pages) {
-            setpage(true);
-        }else{
-            setpage(false);
+    const [k_pages, k_setpage] = useState(true);
+    const [s_pages, s_setpage] = useState(false);
+    function KChange() {
+        if(!k_pages){
+            k_setpage(prevpage => !prevpage);
+            s_setpage(prevpage => !prevpage);
         }
     };
-    if(!pages){
+    function SChange() {
+        if(!s_pages){
+            k_setpage(prevpage => !prevpage);
+            s_setpage(prevpage => !prevpage);
+        }
+    };
+    if(k_pages){
         content = <KOnDisplay />
-    } else {
+    } else if(s_pages) {
         content = <SGDisplay />
     }
     return(
@@ -28,7 +34,7 @@ function Navbar(){
             </img>
             </div>
             <div class="flex-none">
-                <NavBarContent Page={Change}/>
+                <NavBarContent KPage={KChange} SPage={SChange}/>
             </div>
             <div class="flex-none text-3xl font-extrabold pr-6 pt-1">
                 HTT
@@ -39,16 +45,16 @@ function Navbar(){
     );
 }
 
-function NavBarContent({Page}){
+function NavBarContent({KPage, SPage}){
 
 
     return(
     <div class="flex flex-row justify-center align-middle m-auto h-12">
         <div class="flex-none font-bold justify-center align-middle p-4 pt-3 hover:bg-slate-700 text-orange-300 rounded-xl">
-            <button onclick={Page}>K-On</button>
+            <button onClick={KPage}>K-On</button>
         </div>
         <div class="flex-none font-bold justify-center align-middle p-4 pt-3 hover:bg-slate-700 text-blue-300 rounded-xl">
-            <button onclick={Page}>Steins Gate</button>
+            <button onClick={SPage}>Steins Gate</button>
         </div>
     </div>
     );
