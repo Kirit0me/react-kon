@@ -56,7 +56,7 @@ function SGDisplay(){
         <div class="pl-6 bg-black align-middle justify-between flex flex-row-reverse rounded-3xl">
             <img 
                 src={lab.img}
-                class="mx-auto rounded-3xl h-96 w-96 items-center content-center justify-center object-center object-contain md:object-scale-down pb-4"
+                class="mx-auto rounded-3xl w-1/3 h-full items-center content-center justify-center object-center object-contain md:object-scale-down pb-4"
             ></img>
             <div class="flex-none m-auto text-transparent text-center bg-clip-text bg-gradient-to-r from-blue-500 to-fuchsia-300 w-1/3">
                 <h1 class="text-3xl text-center font-bold pb-4">

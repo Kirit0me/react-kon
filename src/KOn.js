@@ -44,7 +44,7 @@ function KOnDisplay(){
         }
     };
     const characters = chars.map(kon=>
-        <div class="flex-none rounded-3xl basis-1/4 mb-5 mr-4 bg-slate-700 hover:bg-gradient-to-tr from-slate-800 via-slate-500 to-slate-800">
+        <div class="flex-none rounded-3xl w-96 mb-5 mr-4 bg-slate-700 hover:bg-gradient-to-tr from-slate-800 via-slate-500 to-slate-800">
         <h2 class="text-3xl pt-4 pb-4 font-bold text-center text-fuchsia-300">{kon.name}</h2>
         <img 
           src={!img ? kon.url : kon.url2}
